@@ -1,5 +1,12 @@
+//author: Michiel van der Coelen
+//email: use . for spaces @ gmail.com
+
+
 var current_image = 0;
+
+//default gallery:
 var current_gallery = "fotos_test";
+
 var FOTOWIDTH = 150;
 var GRABSIZE = 20; //how much thumbnails to download each time
 var FADETIME = 100;

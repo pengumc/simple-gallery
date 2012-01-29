@@ -133,7 +133,7 @@ if f.filename:
 		handle_zipfile(f.file, f.filename)
 	else:
 		print('<h1>Not a valid format</h1>')
-		print('<p>currently supported: .jpg</p>')
+		print('<p>currently supported: .jpg, .zip</p>')
 else:
 	print('<h1>no file was received</h1>')
 print('</body></html>')
