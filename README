@@ -9,6 +9,8 @@ any <name>.txt file is regarded to be a caption and is added to the foto
 * upload/upload.py handles two types of uploads. First there are single .jpg files, these are stored in ./ (default setting).
 secondly, there are zip files that contain a set of jpg's and *no* directories. If the zipfile is accepted, a new gallery is created with the name of the zipfile, containing all the fotos.
 
+
+
 -- setup:
 * the following files need to be executable by the webserver:
  grab_photos.php
@@ -17,3 +19,9 @@ secondly, there are zip files that contain a set of jpg's and *no* directories. 
 
 * ./ and ./upload need to be writeable by upload.py
 
+
+
+-- configuration:
+* some stuff in the first lines of upload.py
+* gallery2.js current_gallery is a string containing the default gallery
+(the one that's opened if you open galery2.php instead of gallery2.php#<galleryname>)
