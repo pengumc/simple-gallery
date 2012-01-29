@@ -1,0 +1,165 @@
+table{width:100%;border:0px;padding:0px;}
+td{vertical-align:top;}
+a{border:0px;}
+img{padding:0px; border:0px;}
+#backtotop{
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	height:20px;
+	display:inline-block;
+}
+#gal_list{
+	font-family:helvetica;
+	font-size:10pt;
+	top:8px;
+	left:8px;
+	width:250px;
+	display:inline-block;
+	vertical-align:top;
+	z-index:0;
+}
+	.gal_list_entry{
+		border:1px solid #ccc;
+		overflow:hidden;
+		font-family:"helvetica";
+		font-size:16pt;
+		background-color:#ddd;
+		color:black;
+		padding:5px;
+		text-align:left;
+		min-height:10px;
+		min-width:50px;
+		z-index:1;
+	}
+	.gal_list_entry:hover{
+		background-color:#ccc;
+		cursor:pointer;
+	}
+
+#gallery{
+	vertical-align:top;
+	top:8px;
+	width:100%;
+	padding:5px;
+	display:inline-block;
+	
+}
+
+	#gal_title{
+		margin-bottom:5px;
+		font-family:"helvetica";
+		font-size:28pt;
+		background-color:gray;
+		color:white;
+		padding:5px;
+		
+	}
+	
+	#gal_fotos{
+	}
+		.foto, .new{
+			vertical-align:top;
+			border:1px solid #ccc;
+			display:inline-block;
+			margin:3px;
+		}
+		.foto img{cursor:pointer;}
+		.new{display:none;}
+			.comment{
+				padding:4px;
+				background-color:#ccc;
+				font-family:helvetica;
+				font-size:10pt;
+			}
+		#gal_footer, #backtotop, #gal_loading{
+			border:1px solid #ccc;
+			margin-top:5px;
+			font-family:"helvetica";
+			font-size:14pt;
+			background-color:#ddd;
+			text-align:center;
+			color:black;
+			padding:5px;
+			z-index:10;
+		}
+		#gal_footer:hover, #backtotop:hover{
+			background-color:#ccc;
+			border-color:#aaa;
+			cursor:pointer;
+		}
+		#gal_loading{
+			display:none;
+			background-color:white;
+		}
+/*----------------------*/
+#f_bg{
+	display:none;
+	position:fixed;
+	top:0px;
+	left:0px;
+	background-color:rgba(0,0,0,0.9);
+	width:100%;
+	height:100%;
+	z-index:20;
+}
+	#f_container{
+		margin:auto;
+		position:absolute;
+		height:90%;
+		width:90%;
+		top:5%;
+		left:5%;
+		overflow:hidden;
+	}
+		#f_img{
+			position:relative;
+			margin-left:auto;
+			margin-right:auto;
+			z-index:21;
+			width:100%;
+			height:100%;
+			cursor:pointer;
+		}
+		#f_loading{
+			position:fixed;
+			left:50%;
+			top:40%;
+			z-index:2;
+			margin:auto;
+			height:48px;
+			width:48px;
+		}
+		#f_comment{
+			position:relative;
+			background-color:black;
+			font-family:helvetica;
+			font-size:20px;
+			height:30px;
+			color:white;
+			font-weight:bold;
+			display:inline-block;
+			z-index:21;
+			padding-top:5px;
+			padding-bottom:5px;
+			width:100%;
+			text-align:center;
+		}
+		#f_next{
+		}
+		#f_prev{
+		}
+		#f_note{
+			display:none;
+			background-color:pink;
+			color:black;
+			font-family:helvetica;
+			font-size:32pt;
+			z-index:22;
+			position:fixed;
+			left:0px;
+			top:30%;
+			width:100%;
+			text-align:center;
+		}	
+

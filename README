@@ -1,0 +1,11 @@
+simple-gallery
+
+-- Basic workings:
+* gallery2.php is the main page. It scans ./ for directories that contain a .gallery file and lists those directories as gallery names.
+
+* grab_photos.php returns html that contains foto sections for all <name>.jpg files in the gallery directory that also have a <name>_thumb.jpg file
+
+* upload/upload.py handles two types of uploads. First there are single .jpg files, these are stored in ./ (default setting).
+secondly, there are zip files that contain a set of jpg's and *no* directories. If the zipfile is accepted, a new gallery is created with the name of the zipfile, containing all the fotos.
+
+
