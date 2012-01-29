@@ -186,16 +186,18 @@ function hide_view(e){
 function toggle_fullsize(e, ev){
 	if (disregard_click){
 		disregard_click = false;
-		ev.stopPropagation();
-		ev.cancelBubble=true;
-		return
+		if(ev.stopPropagation) ev.stopPropagation();
+		else ev.cancelBubble=true;
+		return;
 	}
-	if(!ev)	ev = window.event
-	var e = $(e)
-	window.open(
+	if(!ev)	ev = window.event;
+	;
+	var e = $(e);
+	var neww = window.open(
 		e.attr('src'),
 		'fullsize_view',
 		'channelmode=yes, height=' + parseInt(e.attr('flipheight')) + ',width='+parseInt(e.attr('flipwidth')));
+	neww.focus();
 	disregard_click = true;
 	/* OLD
 	var newh = e.attr('flipheight');
@@ -204,8 +206,8 @@ function toggle_fullsize(e, ev){
 	e.css('width', neww).css('height', newh);
 	e.attr('fullsize', e.attr('fullsize')?0:1);	
 	*/
-	ev.stopPropagation();
-	ev.cancelBubble=true;
+	if(ev.stopPropagation) ev.stopPropagation();
+	else ev.cancelBubble=true;
 }
 
 //scale the fullscreen foto 
@@ -265,6 +267,15 @@ function scale_element(e){
 	scalecount++;
 	var w = e.width;
 	var h = e.height;
+	
+	//IE failure workaround:
+	if ($.browser.msie){
+		var poep = new Image();
+		poep.src = $(e).attr('src');
+		w = poep.width;
+		h = poep.height;
+		delete(poep);
+	}
 	var ratio = w / h;
 	var je = $(e);
 	var container = $('#f_container')

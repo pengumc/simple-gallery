@@ -3,9 +3,17 @@
 <html><head><title>murad gallery2</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="gallery2.js"></script>
+
 <link rel="stylesheet" href="gallery2.css" type="text/css"></link>
-<!-- FFS ie9 why does ie8 understand inline-blocks better than you? -->
-<meta http-equiv="X-UA-Compatible" content="IE=8">
+<!-- and overwrite some css for... guess who? %@#$&! IE  -->
+<!--[if IE]>
+<style>
+#f_bg{
+	background:black;
+}
+</style>
+<![endif]-->
+
 
 </head>
 <body >
@@ -61,8 +69,4 @@ foreach ($galleries as $gal){
 	parseLoc();
 </script>
 
-<!--
-<input type="button" value="add img" onclick="load_images(5);"></input>
-<input type="button" value="fadein" onclick="$('.foto').fadeIn('slow');"></input>
--->
 </body></html>
