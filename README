@@ -3,6 +3,8 @@ simple-gallery
 -- Basic workings:
 * gallery2.php is the main page. It scans ./ for directories that contain a .gallery file 
 and lists those directories as gallery names.
+Gallery names can contain only letter, numbers and underscores
+
 
 * grab_photos.php returns html that contains foto sections for all <name>.jpg files in 
 the gallery directory that also have a <name>_thumb.jpg file.
@@ -12,7 +14,7 @@ any <name>.txt file is regarded to be a caption and is added to the foto
 these are stored in ./ (default setting).
 secondly, there are zip files that contain a set of jpg's and *no* directories. 
 If the zipfile is accepted, a new gallery is created with the name of the zipfile, containing all the fotos.
-
+(gallery name limitations apply)
 
 
 -- setup:
