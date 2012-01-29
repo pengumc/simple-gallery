@@ -30,6 +30,7 @@ foreach ($galleries as $gal){
 }
 
 ?>
+<div id="backtotop" onclick="toggle_slowmode(this)">animations: On</div>
 </div> 
 </td><td>
 <div id="gallery">
@@ -42,7 +43,6 @@ foreach ($galleries as $gal){
 	</div>
 </div>
 </td></tr></table>
-<div id="backtotop"  onclick="SLOWMODE=SLOWMODE?false:true;" >Toggle slowmode</div>
 
 
 

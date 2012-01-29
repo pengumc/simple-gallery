@@ -191,7 +191,7 @@ function toggle_fullsize(e, ev){
 		return
 	}
 	if(!ev)	ev = window.event
-	e = $(e)
+	var e = $(e)
 	window.open(
 		e.attr('src'),
 		'fullsize_view',
@@ -291,3 +291,8 @@ function scale_element(e){
 	
 }
 
+
+function toggle_slowmode(e){
+	SLOWMODE = SLOWMODE?false:true;
+	$('#backtotop').html('animations: ' +(SLOWMODE?'Off':'On'));
+}
