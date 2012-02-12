@@ -9,7 +9,7 @@ var current_gallery = "fotos_test";
 
 var FOTOWIDTH = 150;
 var GRABSIZE = 20; //how much thumbnails to download each time
-var FADETIME = 100;
+var FADETIME = 500/20;
 var SCALING = false; //is there a scaling scheduled?
 var LOADING = false; //are we loading thumbnails?
 var SLOWMODE = false; //slow pc mode, if true, disables fade animations
@@ -196,7 +196,7 @@ function toggle_fullsize(e, ev){
 	var neww = window.open(
 		e.attr('src'),
 		'fullsize_view',
-		'channelmode=yes, height=' + parseInt(e.attr('flipheight')) + ',width='+parseInt(e.attr('flipwidth')));
+		'channelmode=yes, height=' + parseInt(e.attr('flipheight')) + ',width='+parseInt(e.attr('flipwidth,scrollbars=yes')));
 	neww.focus();
 	disregard_click = true;
 	/* OLD

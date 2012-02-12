@@ -11,11 +11,14 @@ import tempfile
 #presented to the user, e.g. href="./gallery2.php#new_gallery"
 BASE_GALLERY_LINK = '../gallery2.php#'
 
-#the directory where single file uploads will be stored
+#the directory where zip file uploads will be stored
 #this is relative to the script location, paths starting with / are not
 #supported. 
 # make sure this path exists
-BASE_UPLOAD_LINK = './'
+BASE_UPLOAD_LINK = '../'
+
+#same as above, only for single files
+BASE_SINGLE_UPLOAD_LINK = './'
 
 
 
@@ -57,7 +60,7 @@ def handle_zipfile(fp, filename):
 			z.close()
 			return
 		#extract all jpegs and txt from zipfile to new gallery
-		path = os.getcwd() + os.sep + filename + os.sep
+		path = os.getcwd() + os.sep + BASE_UPLOAD_LINK + filename + os.sep
 		try:
 			print('<br/>extracted:<ul>')
 			for name in z.namelist():
@@ -72,7 +75,7 @@ def handle_zipfile(fp, filename):
 			return 
 		print('</ul>')
 		#create thumbnailes for galleryg
-		call_and_print(['./thumb.php', os.getcwd() + os.sep + filename])
+		call_and_print(['./thumb.php', os.getcwd() + os.sep + BASE_UPLOAD_LINK + filename])
 		print(
 			'new gallery: <a href="' + BASE_GALLERY_LINK + filename
 			+ '">%s</a>' % (filename))
@@ -83,6 +86,7 @@ def handle_zipfile(fp, filename):
 	z.close()
 
 def create_gallery(name):
+	name = BASE_UPLOAD_LINK + name
 	try:
 		 os.mkdir(name) #TODO permissions
 	except OSError as e:
@@ -119,7 +123,7 @@ f = form['file']
 if f.filename:
 	#JPEGS 
 	if re.search('\.jpg$', f.filename, re.IGNORECASE):
-		name  = BASE_UPLOAD_LINK + os.sep + f.filename
+		name  = BASE_SINGLE_UPLOAD_LINK + os.sep + f.filename
 		out = open(name, 'wb')
 		out.write(f.file.read())
 		out.close()
