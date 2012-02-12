@@ -104,6 +104,9 @@ function set_gallery(e){
 
 // parse the part after the # to be a gallery name
 function parseLoc(){
+	//hide fullscreen view
+	$('#f_bg').hide();
+
 	//get gallery from location
 	// gallery2.php#cat_pictures ==> "cat_pictures"
 	var loc = window.location.href;
