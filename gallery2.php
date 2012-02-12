@@ -1,11 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html><head><title>murad gallery2</title>
+<link rel="SHORTCUT ICON" href="favicon.ico"></link>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="gallery2.js"></script>
+
 <link rel="stylesheet" href="gallery2.css" type="text/css"></link>
-<!-- FFS ie9 why does ie8 understand inline-blocks better than you? -->
-<meta http-equiv="X-UA-Compatible" content="IE=8">
+<!-- and overwrite some css for... guess who? %@#$&! IE  -->
+<!--[if IE]>
+<style>
+#f_bg{
+	background:black;
+}
+</style>
+<![endif]-->
+
 
 </head>
 <body >
@@ -30,6 +39,7 @@ foreach ($galleries as $gal){
 }
 
 ?>
+<div id="backtotop" onclick="toggle_slowmode(this)">animations: On</div>
 </div> 
 </td><td>
 <div id="gallery">
@@ -42,7 +52,6 @@ foreach ($galleries as $gal){
 	</div>
 </div>
 </td></tr></table>
-<div id="backtotop"  onclick="SLOWMODE=SLOWMODE?false:true;" >Toggle slowmode</div>
 
 
 
@@ -61,8 +70,4 @@ foreach ($galleries as $gal){
 	parseLoc();
 </script>
 
-<!--
-<input type="button" value="add img" onclick="load_images(5);"></input>
-<input type="button" value="fadein" onclick="$('.foto').fadeIn('slow');"></input>
--->
 </body></html>
