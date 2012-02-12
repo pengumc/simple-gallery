@@ -1,5 +1,4 @@
 simple-gallery
-## dev branch
 
 -- Basic workings:
 * gallery2.php is the main page. It scans ./ for directories that contain a
@@ -9,7 +8,7 @@ Gallery names can contain only letters, numbers and underscores
 * grab_photos.php returns html that contains foto sections for all 
 <name>.jpg files in the gallery directory that also have a 
 <name>_thumb.jpg file. any <name>.txt file is regarded to be a caption and
-is added to the foto
+is added to the foto (replacing the filename)
 
 * upload/upload.py handles two types of uploads. 
 First there are single .jpg files, these are stored in ./ (default setting).
