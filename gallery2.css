@@ -11,7 +11,6 @@ img{padding:0px; border:0px;}
 	display:inline-block;
 }
 #truebacktotop{
-	width:90px;
 	bottom:32px;
 }
 #gal_list{
@@ -80,7 +79,7 @@ img{padding:0px; border:0px;}
 		#gal_footer, #backtotop, #gal_loading, #truebacktotop{
 			border:1px solid #ccc;
 			margin-top:5px;
-			font-family:"helvetica";
+			font-family:helvetica;
 			font-size:14pt;
 			background-color:#ddd;
 			text-align:center;

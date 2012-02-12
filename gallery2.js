@@ -62,6 +62,7 @@ function load_galleries(){
 function load_images(n){
 	//basically: GET grab_photos.php and append the received data
 	// to #gal_fotos
+	if (LOADING) return;
 	LOADING = true;
 	$('#gal_footer').hide();
 	$('#gal_loading').show();
