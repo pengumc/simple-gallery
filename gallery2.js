@@ -13,6 +13,7 @@ var FADETIME = 500/20;
 var SCALING = false; //is there a scaling scheduled?
 var LOADING = false; //are we loading thumbnails?
 var SLOWMODE = false; //slow pc mode, if true, disables fade animations
+var ALLLOADED = false; //no more images to load?
 var scalecount = 0;
 var nep_event = {keyCode:0}; 
 
@@ -30,6 +31,18 @@ window.onresize = do_resize;
 
 //register keydow event for the left and right keys
 $(document).keydown(next_prev_foto);
+
+//load images if we scroll to the bottom
+window.onscroll = function checkScroll(){
+	var alt_pos = window.scrollY;
+	var pos = document.body.scrollTop;
+	//some browsers don't have scrollTop so use scrollY instead
+	if (+pos < +alt_pos) pos = alt_pos;
+	var max = document.body.scrollHeight - window.innerHeight;
+	if (pos >= max) {
+		if(!ALLLOADED) load_images();
+	}
+};
 
 //unused, builtin the gallery2.php file
 function load_galleries(){
@@ -52,7 +65,7 @@ function load_images(n){
 	LOADING = true;
 	$('#gal_footer').hide();
 	$('#gal_loading').show();
-	if (n){
+	if (!n){
 		n = GRABSIZE;
 	}
 	$.ajax({
@@ -61,6 +74,7 @@ function load_images(n){
 		success:function(data, textStatus, jqHXR){
 			if (data.length < 10){
 				$('#gal_footer').hide();
+				ALLLOADED = true;
 				LOADING = false;
 				return;
 			}
@@ -119,6 +133,7 @@ function parseLoc(){
 	$('#gal_title').html(gal);
 	$('#gal_fotos').html("");
 	$('#gal_footer').show();
+	ALLLOADED = false;
 	current_gallery = gal;
 	current_image = 0;
 	load_images(20);
@@ -194,12 +209,11 @@ function toggle_fullsize(e, ev){
 		return;
 	}
 	if(!ev)	ev = window.event;
-	;
 	var e = $(e);
 	var neww = window.open(
 		e.attr('src'),
 		'fullsize_view',
-		'channelmode=yes, height=' + parseInt(e.attr('flipheight')) + ',width='+parseInt(e.attr('flipwidth,scrollbars=yes')));
+		'channelmode=yes, height=' + parseInt(e.attr('flipheight')) + ',width='+parseInt(e.attr('flipwidth')+ 'scrollbars=yes'));
 	neww.focus();
 	disregard_click = true;
 	/* OLD
@@ -241,7 +255,8 @@ function next_prev_foto(ev){
 		do_show(foto);
 	}else if (ev.keyCode == 39){
 		if (active > +current_image -2) { //load moar!
-			if ($('#gal_footer').css('display') != 'none') {
+			if(!ALLLOADED){
+			//if ($('#gal_footer').css('display') != 'none') {
 				load_images(GRABSIZE);
 			}
 			else if(!LOADING) { //footer is also gone during loading

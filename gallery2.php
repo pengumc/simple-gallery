@@ -40,6 +40,7 @@ foreach ($galleries as $gal){
 
 ?>
 <div id="backtotop" onclick="toggle_slowmode(this)">animations: On</div>
+<div id="truebacktotop" onclick="window.scroll(0,0)">back to top</div>
 </div> 
 </td><td>
 <div id="gallery">
