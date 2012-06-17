@@ -115,6 +115,7 @@ function set_gallery(e){
 	$(e).css('color', 'green');
 	//ow IE u so funny, y u no DIE IN A FIRE
 	if ($.browser.msie) parseLoc();
+	window.scroll(0,0);
 }
 
 // parse the part after the # to be a gallery name
